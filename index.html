@@ -6,6 +6,13 @@
     </head>
     <body>
         <div id="main" class="container">
+                <nav class="navbar navbar-light bg-light justify-content-between">
+                    <a class="navbar-brand">VueGBooks</a>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="text" ref="search" placeholder="Search Book..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" @click.prevent="getFormValues()">Search</button>
+                    </form>
+                </nav>
             <div class="row">
                 <div class="col-sm-4">
                     <h1>Lista VueJS - AJAX</h1>
@@ -26,24 +33,6 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.15/vue.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
-        <script type="text/javascript">
-            var urlBooks = 'https://www.googleapis.com/books/v1/volumes?q=harry+potter';
-            new Vue({
-                el: '#main',
-                created: function(){
-                    this.getBooks();
-                },
-                data: {
-                    lists: []
-                },
-                methods: {
-                    getBooks: function(){
-                        this.$http.get(urlBooks).then(function(response){
-                            this.lists = response.data.items;
-                        });
-                    }
-                }
-            });
-        </script>
+        <script src="app.js"></script>
     </body>
 </html>
